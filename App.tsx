@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import { AppProvider, useApp } from './src/store/AppContext';
 import { useTheme } from './src/theme';
@@ -195,6 +196,7 @@ export default function App() {
       <AppProvider>
         <StatusBarWrapper />
         <RootNavigator />
+        <SpeedInsights />
       </AppProvider>
     </SafeAreaProvider>
   );
