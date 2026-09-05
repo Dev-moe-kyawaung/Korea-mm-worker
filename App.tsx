@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ActivityIndicator, Text, View, Platform } from 'react-native';
 import { NavigationContainer, Theme as NavTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import { AppProvider, useApp } from './src/store/AppContext';
 import { useTheme } from './src/theme';
@@ -195,6 +196,7 @@ export default function App() {
       <AppProvider>
         <StatusBarWrapper />
         <RootNavigator />
+        {Platform.OS === 'web' && <SpeedInsights />}
       </AppProvider>
     </SafeAreaProvider>
   );
